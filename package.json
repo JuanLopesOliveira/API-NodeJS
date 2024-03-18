@@ -1,0 +1,46 @@
+{
+  "name": "nodejs_solid",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "node build/server.js",
+    "build": "tsup src --out-dir build",
+    "test": "vitest run --dir drc/services",
+    "test--watch": "vitest dir src/services",
+    "test--coverage": "vitest run --coverage",
+    "test--coverage--watch": "vitest --coverage",
+    "test--create-prisma-environment": "npm link ./prisma/vitest-environment-prisma",
+    "test--install-prisma-environment": "npm link vitest-environment-prisma",
+    "pretest--e2e": "run-s test--create-prisma-environment test--install-prisma-environment",
+    "test--e2e": "vitest run --dir src/http",
+    "test--e2e--watch": "vitest --dir src/http"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/bcryptjs": "2.4.6",
+    "@types/node": "20.11.16",
+    "@types/supertest": "6.0.2",
+    "@vitest/coverage-v8": "1.2.2",
+    "npm-run-all": "4.1.5",
+    "prisma": "5.9.1",
+    "supertest": "6.3.4",
+    "tsup": "8.0.1",
+    "tsx": "4.7.0",
+    "typescript": "5.3.3",
+    "vitest": "1.2.2"
+  },
+  "dependencies": {
+    "@fastify/cookie": "9.3.1",
+    "@fastify/jwt": "8.0.0",
+    "@prisma/client": "5.9.1",
+    "bcryptjs": "2.4.3",
+    "dayjs": "1.11.10",
+    "dotenv": "16.4.1",
+    "fastify": "4.26.0",
+    "zod": "3.22.4"
+  }
+}
